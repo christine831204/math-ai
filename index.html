@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finger Math AI Tool</title>
+  <style>
+    body { text-align: center; font-family: Arial, sans-serif; }
+    #videoContainer {
+      position: relative;
+      display: inline-block;
+    }
+    video {
+      width: 640px;
+      height: 420px;
+    }
+    #output-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1; /* 确保红点叠加在视频流上 */
+      pointer-events: none;
+    }
+    h1 { color: #333; }
+    h3 { color: #5430ca; }
+  </style>
+</head>
+<body>
+  <h1>Math AI</h1>
+  <h5>Disediakan oleh Christine Ji Yun</h5>
+  <h3>Arahan:</h3>
+  <h3>Menjawabkan soalan di bawah dengan menunjukkan tangan kanan anda dalam kawasan kamera, bilangan jari akan dijadi sebagai jawapan anda!</h3>
+
+  <h1>Soalan: 2 + 3 = ?</h1>
+  
+  <!-- 视频和画布的容器 -->
+  <div id="videoContainer">
+    <video id="video" autoplay playsinline></video>
+    <canvas id="output-canvas" width="640" height="420"></canvas>
+  </div>
+
+  <!-- 显示手指数量和答案 -->
+  <p id="finger-count">Detected Fingers: 0</p>
+  <p id="result"></p>
+
+  <!-- MediaPipe Hands 和摄像头工具的库 -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+  <!-- 主逻辑的 app.js 文件 -->
+  <script src="app.js"></script>
+</body>
+</html>
